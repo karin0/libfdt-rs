@@ -12,6 +12,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![feature(error_in_core)]
 
 pub mod myctypes {
     pub type c_void = core::ffi::c_void;
@@ -32,5 +33,13 @@ pub mod myctypes {
     pub type c_longlong = i64;
     pub type c_ulonglong = u64;
 }
+
+extern crate alloc;
+
+pub mod binding;
+pub mod error;
+pub mod ffi;
+
+pub use error::*;
 
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
