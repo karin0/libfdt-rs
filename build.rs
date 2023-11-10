@@ -15,11 +15,10 @@ use std::path::PathBuf;
 
 fn main() {
     println!("cargo:rerun-if-changed=wrapper.h");
-    println!("cargo:rerun-if-changed=./libfdt");
+    println!("cargo:rerun-if-changed=dtc/libfdt");
     println!("cargo:rerun-if-changed=build.rs");
 
-    // compile libfdt-bingding
-    let fdt_dirs = ["./", "./libfdt"];
+    let fdt_dirs = ["./", "dtc/libfdt"];
     let c_files = fdt_dirs.iter().flat_map(|path| {
         std::fs::read_dir(path).unwrap().filter_map(|f| {
             let f = f.unwrap();
