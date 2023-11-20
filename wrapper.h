@@ -1,7 +1,4 @@
-typedef unsigned char uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned int uint32_t;
-typedef unsigned long uint64_t;
+#include <stdint.h>
 
 // Note: this module assume
 //  1. template uses #size-cells = <0x2> and #address-cells = <0x2>
